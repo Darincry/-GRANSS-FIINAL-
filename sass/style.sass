@@ -1,0 +1,2185 @@
+@import 'reset.scss'
+@import 'normalize.scss'
+
+$color-2D: #2AD200
+$color-45: #45C436
+$text-color: #222222
+
+*
+    box-sizing: border-box
+
+body
+    font-family: 'SF Pro Display', sans-serif
+    color: $text-color
+    a
+        text-decoration: none
+    h1, h2, h3, h4, h5, h6
+        margin: 0
+
+::-webkit-scrollbar
+    width: 15px
+
+::-webkit-scrollbar-track
+    border: 11px solid #EDEDED
+    box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.5)
+
+::-webkit-scrollbar-thumb
+    background: linear-gradient(45deg, #06dee1, #78ff6cc4)
+    border-radius: 3px
+
+.wrapper
+    min-height: 100%
+    width: 100%
+    overflow: hidden
+
+.overlay
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 80
+    background: rgba(0, 0, 0, 0.349)
+    visibility: hidden
+    opacity: 0
+    transition: .3s all
+
+.popup__overlay
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 80
+    background: rgba(0, 0, 0, 0.349)
+    visibility: hidden
+    opacity: 0
+    transition: .3s all
+
+.overlay--show
+    opacity: 1
+    visibility: visible
+    display: none
+    transition: 1s all
+
+.popup__overlay--show
+    opacity: 1
+    visibility: visible
+    transition: 1s all
+
+.container
+    max-width: 1170px
+    margin: 0 auto
+    padding: 0 15px
+
+.container-wrapper
+    background: rgba(255, 255, 255, 0.6)
+    transform: translateY(-100%)
+    width: 100%
+    position: absolute
+    z-index: 100
+    opacity: 0
+    transition: 1s all
+
+.container-wrapper--active
+    transform: translateY(0)
+    opacity: 1
+    transition: .7s all
+
+
+.button
+    padding: 25px 68px
+    display: inline-block
+    border: none
+    color: #fff
+    font-size: 18px
+    line-height: 21px
+    background: linear-gradient(288.46deg, rgba(0, 0, 0, 0.2) -12.86%, rgba(0, 0, 0, 0) 66.5%), #45C436
+    border-radius: 126px
+    cursor: pointer
+    box-shadow: 4px 4px 0px 0px rgb(5 154 2)
+    transition: all .5s
+    &:hover
+        opacity: .9
+        background: radial-gradient(36.31% 127.36% at 72.66% 83.02%, rgba(167, 255, 157, 0.5) 27.92%, rgba(255, 255, 255, 0) 100%), #45C436
+        transform: translate3d(0, 0.15em, -1em)
+
+.input-tel
+    padding: 25px 25px 25px 50px
+    font-size: 18px
+    line-height: 21px
+    background: #f2f2f2
+    border-radius: 61px
+    border: 1px solid #E7E7E7
+    outline: none
+    background: #f2f2f2 url(../icons/form__tel.svg) no-repeat
+    background-position: 24px center
+    transition: 1s all
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+    -webkit-appearance: none
+    margin: 0
+
+.heading
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    text-align: center
+    h3
+        font-size: 46px
+        font-weight: 600
+        line-height: 54px
+    p
+        font-size: 26px
+        line-height: 31px
+
+.main__product
+    margin-bottom: 155px
+
+.main__service
+    margin-bottom: 117px
+
+.main__portfolio
+    padding-bottom: 107px
+
+.main__about
+    padding-bottom: 158px
+
+.main__form
+    padding-bottom: 244px
+
+.header
+    padding-bottom: 170px
+    background: url(../img/header-background.jpg) 0 99% / cover no-repeat
+    &__top
+        position: relative
+        z-index: 50
+        border-bottom: 1px solid #DADADA
+    &__top-inner
+        position: relative
+        padding: 41px 0 35px 0
+        display: flex
+        align-items: center
+    &__top-logo
+        margin: 0 auto
+    &__top-watsapp
+        display: none
+    &__top-phone
+        display: none
+    &__nav-menu
+        position: relative
+        transform: translateY(0)
+        visibility: hidden
+        transition: all 1s
+    &__nav
+        display: flex
+        justify-content: space-between
+    &__nav-wrapper
+        display: grid
+        grid-template: repeat(2, auto) / repeat(3, 1fr)
+        gap: 11px 100px
+    &__nav-item
+        pointer-events: none
+    &__nav-schedule
+        margin-bottom: 11px
+    &__nav-mail
+        position: relative
+        a
+            padding-left: 26px
+            color: $text-color
+        &::before
+            content: ""
+            position: absolute
+            top: 0
+            left: 0
+            width: 17px
+            height: 17px
+            background: url(../icons/nav-menu-mail.svg)
+    &__nav-link
+        color: $text-color
+        transition: .3s all
+        &:hover
+            color: $color-2D
+    &__nav-mail
+        a
+            transition: .3s all
+            &:hover
+                color: $color-2D
+    &__top-navigation
+        display: flex
+        position: absolute
+        align-items: center
+    &__navigation-item
+        margin-right: 14px
+    &__search
+        display: flex
+        align-items: center
+        input
+            padding: 13px 17px
+            margin-right: 15px
+            transform: scale(0)
+            display: none
+            background: #FFFFFF
+            border: 1px solid rgba(0, 0, 0, 0.05)
+            box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.09)
+            border-radius: 7px
+            transition: all .3s
+    &__search-btn
+        width: 24px
+        height: 24px
+        background: url(../icons/header__search-btn.svg)
+        border: none
+        cursor: pointer
+        transition: .3s all
+    &__search--active
+        position: relative
+        .header__search-btn
+            transform: translateX(17px)
+            z-index: 2
+            transition: .3s all
+        input
+            padding-left: 50px
+            display: block
+            transform: scale(1)
+            position: relative
+            left: -23px
+            width: 300px
+            font-size: 16px
+            font-weight: 400
+            line-height: 1.19
+            outline: none
+    &__likes
+        svg
+            &:hover
+                path
+                    fill: #FFD25A
+                    transition: .2s all
+    &__top-logo
+        a
+            display: flex
+            align-items: center
+            color: $text-color
+        img
+            width: 63px
+            height: 48px
+        h1
+            font-size: 36px
+            line-height: 43px
+            text-transform: uppercase
+    &__top-live
+        position: absolute
+        right: 0
+        text-align: center
+        display: flex
+    &__top-contacts
+        position: absolute
+        top: 5px
+        left: -107px
+        display: block
+        opacity: 0
+    &__top-contact
+        margin-right: 11px
+        &:last-child
+            margin-right: 0
+    &__top-tel
+        margin-bottom: 4px
+        display: inline-block
+        font-size: 18px
+        line-height: 21px
+        color: $text-color
+        transition: .3s all
+        &:hover
+            color: $color-45
+    &__top-status
+        padding: 6px 9px
+        display: flex
+        align-items: center
+        background: $color-2D
+        border-radius: 67px
+        font-size: 14px
+        font-weight: 300
+        line-height: 17px
+        &::before
+            content: ""
+            margin-right: 8px
+            width: 8px
+            height: 8px
+            background: #fff
+            border-radius: 50%
+            display: block
+            animation: online 1s infinite alternate
+    &__body
+        padding-top: 115px
+    &__body-inner
+        display: flex
+        justify-content: space-between
+        position: relative
+    &__body-wrapper
+        position: relative
+        z-index: 50
+    &__body-title
+        margin-bottom: 20px
+        font-size: 56px
+        font-weight: 600
+        line-height: 66px
+        max-width: 700px
+        span
+            color: $color-2D
+    &__body-tagline
+        margin-bottom: 39px
+        font-size: 34px
+        line-height: 40px
+    &__body-benefit
+        margin-bottom: 66px
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        max-width: 389px
+        &::before
+            content: ""
+            margin-right: 11px
+            width: 75px
+            height: 46px
+            background: url(../img/header-light.png)
+            display: block
+    &__benefit-text
+        font-size: 18px
+        line-height: 21px
+        span
+            color: $color-2D
+    &__body-btn
+        padding: 17px 45px
+        position: relative
+        line-height: 19px
+        font-weight: 600
+        display: inline-block
+        width: 324px
+        color: #fff
+        background: linear-gradient(291.31deg, rgba(0, 0, 0, 0.2) 3.27%, rgba(0, 0, 0, 0) 66.8%), #45C436
+        border-radius: 61px
+        &::after
+            content: ""
+            width: 204px
+            height: 153px
+            background: url(../img/header-book.png)
+            position: absolute
+            top: -50px
+            right: -35px
+            z-index: 1
+    &__popup
+        padding: 55px 52px 62px 52px
+        position: absolute
+        top: 0%
+        left: 65%
+        transform: translate(-50%, -50%) scale(0.1)
+        width: 515px
+        background: #fff
+        border-radius: 9px
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.11)
+        text-align: center
+        opacity: 0
+        visibility: hidden
+        z-index: 500
+        transition: .5s all
+    &__popup-wrapper
+        display: flex
+        justify-content: flex-end
+    &__popup-close
+        padding: 10px
+        display: flex
+        justify-content: center
+        align-items: center
+        position: absolute
+        width: 15px
+        height: 15px
+        top: 20px
+        left: 470px
+        cursor: pointer
+        border: 2px solid #000
+        border-radius: 50%
+        &::before
+            position: absolute
+            content: ""
+            width: 2px
+            height: 10px
+            border-top: 1px solid #000
+            transform: rotate(45deg)
+            background: #000
+        &::after
+            position: absolute
+            content: ""
+            width: 2px
+            height: 10px
+            border-top: 1px solid #000
+            transform: rotate(-45deg)
+            background: #000
+    &__popup-title
+        margin-bottom: 9px
+        font-size: 34px
+        font-weight: 600
+        color: #222
+        line-height: 40px
+    &__popup-subtitle
+        margin-bottom: 24px
+        font-size: 18px
+        line-height: 21px
+        color: #222
+    &__popup-text
+        margin-bottom: 32px
+        max-width: 379px
+        font-size: 24px
+        line-height: 28px
+        color: #222
+        &::before
+            content: ""
+            position: absolute
+            top: 240px
+            left: -161px
+            background: url(../img/header__popup.png)
+            width: 294px
+            height: 213px
+    &__popup-tel
+        margin-bottom: 15px
+        width: 356px
+    &__popup-btn
+        margin-bottom: 10px
+        position: relative
+        width: 354px
+        z-index: 10
+    &__popup-checkbox
+        justify-content: center
+    &__popup-success
+        padding: 60px 75px 60px 60px
+        position: absolute
+        top: 0
+        left: 50%
+        transform: translate(-50%, -50%) scale(0.1)
+        background: #fff
+        width: 450px
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.11)
+        border-radius: 9px
+        visibility: hidden
+        opacity: 0
+        z-index: 500
+        transition: .5s all
+        h5
+            margin-bottom: 40px
+            color: $color-45
+        p
+            margin-bottom: 45px
+            max-width: 246px
+            &::before
+                width: 334px
+                height: 317px
+                background: url(../img/header__popup-success.png)
+                top: 55px
+                left: 210px
+        a
+            display: flex
+            justify-content: center
+            width: 141px
+        .header__popup-close
+            left: 400px
+        
+
+.header__nav-menu--active
+    padding: 30px 0
+    position: relative
+    visibility: visible
+    transform: translateY(0)
+    transition: 1s all
+    .header__nav-wrapper, .header__nav-info
+        opacity: 1
+    .header__nav-item
+        pointer-events: all
+
+.header__top--white
+    background: #fff
+    opacity: 1
+    z-index: 101
+
+.header__top-contacts--active
+    display: block
+    opacity: 1
+    transition: .8s all
+
+.header__likes--active
+    background: url(../icons/like-yellow.svg) no-repeat
+    svg
+        path
+            fill: #FFD25A
+
+.header__nav-wrapper, .header__nav-info
+    opacity: 0
+    transition: .3s all
+
+.header__popup--active
+    transform: translate(-50%, -50%) scale(1)
+    top: 50%
+    visibility: visible
+    opacity: 1
+    transition: .5s all
+
+.header__popup-success--active
+    transform: translate(-50%, -50%) scale(1)
+    top: 50%
+    visibility: visible
+    opacity: 1
+    transition: .5s all
+
+.input-wrapper
+    position: relative
+    display: none
+    &::after
+        content: ""
+        position: absolute
+        top: -10px
+        left: 17px
+        width: 24px
+        height: 24px
+        background: url(../icons/search.svg)
+
+.input-wrapper--active
+    display: block
+
+.input-wrapper--clicked
+    &::after
+        transform: scale(0)
+        transition: all .3s
+
+.burger
+    display: flex
+    align-items: center
+    margin-right: 60px
+    cursor: pointer
+    position: relative
+    &__inner
+        &::before
+            content: ""
+            margin-bottom: 6px
+            width: 24px
+            border: 1px solid #000
+            display: block
+            transition: all .3s
+        span
+            content: ""
+            margin-bottom: 6px
+            width: 26px
+            border: 1px solid #000
+            display: block
+            transition: all .3s
+        &::after
+            content: ""
+            width: 19px
+            border: 1px solid #000
+            display: block
+            transition: all .3s
+        div
+            position: absolute
+            top: 0
+            right: -50px
+
+.burger--active
+    .burger__inner
+        &::before
+            transform: translateY(8px) rotate(45deg)
+        &::after
+            width: 24px
+            transform: translateY(-8px) rotate(-45deg)
+        span
+            opacity: 0
+
+.product
+    &__inner
+        display: flex
+        justify-content: center
+    &__item
+        margin-right: 30px
+        max-width: 370px
+        border-radius: 12px
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.11)
+        text-align: center
+    &__heading--product
+        padding-top: 60px
+    &__heading-title
+        margin-bottom: 56px
+        span
+            padding: 8px 5px
+            border: 1px solid $color-45
+            border-radius: 50%
+    &__item-heading
+        margin-bottom: 35px
+        height: 91px
+        display: flex
+        align-items: center
+        justify-content: center
+        border-bottom: 1px solid rgba(196, 196, 196, 0.39)
+    &__item-title
+        font-size: 26px
+        line-height: 31px
+        color: $text-color
+        width: 70%
+    &__item-img
+        margin-bottom: 23px
+        padding-bottom: 35px
+        display: flex
+        justify-content: center
+        align-items: center
+        border-bottom: 1px solid rgba(196, 196, 196, 0.39)
+        position: relative
+    &__img
+        max-width: 100%
+        height: auto
+        object-fit: cover
+    &__img-iphone
+        width: 23%
+        max-width: 65px
+        height: auto
+        position: absolute
+        top: 90px
+        right: 67px
+        object-fit: cover
+    &__item-price
+        margin-bottom: 23px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        p
+            position: relative
+            margin-bottom: 5px
+            font-size: 18px
+            line-height: 21px
+            color: #989897
+            &::before
+                content: ""
+                border-bottom: 1px solid rgba(255, 52, 52, 0.6)
+                width: 112%
+                display: block
+                position: absolute
+                top: 10px
+                left: -5px
+        h4
+            font-size: 24px
+            line-height: 28px
+            color: #3CAA2F
+            span
+                font-weight: 600
+    &__item-btn
+        margin-bottom: 44px
+
+.service
+    &__inner
+        padding: 45px 41px 38px 50px
+        box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.13)
+        border-radius: 12px
+        overflow: hidden
+        display: flex
+        align-items: flex-start
+    &__heading
+        margin-bottom: 58px
+    &__heading-title
+        margin-bottom: 9px
+        max-width: 693px
+        span
+            padding: 8px 5px
+            border: 1px solid $color-45
+            border-radius: 50%
+    &__bonus
+        width: 327px
+        height: 512px
+        background: url(../img/service-bonus-bg.svg) 0 0 / 100% no-repeat
+        display: flex
+        align-items: flex-end
+        border-radius: 9px
+        position: relative
+        clip-path: inset(-50px -0.5px 0 0px)
+    &__bonus-people
+        position: absolute
+        top: -108px
+        left: -114px
+    &__bonus-title
+        font-size: 26px
+        font-weight: 600
+        line-height: 31px
+    &__bonus-text
+        font-weight: 300
+        line-height: 19px
+        max-width: 266px
+    &__bonus-info
+        padding: 20px 16px
+        background: linear-gradient(142.06deg, rgba(255, 255, 255, 0) 21.05%, #FFFFFF 81.56%), rgba(255, 255, 255, 0.86)
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.09)
+        border-radius: 9px
+        position: relative
+        &::before
+            content: ""
+            width: 18px
+            height: 15px
+            background: url(../img/service-bonus-triangle.svg) 0 0 / 100% no-repeat
+            position: absolute
+            top: -14.5px
+            left: 162px
+            display: block
+            z-index: 10
+    &__bonus-box
+        display: flex
+        align-items: center
+        justify-content: space-between
+    &__bonus-btn
+        padding: 12px 32px
+        font-size: 18px
+        line-height: 21px
+        color: $color-45
+        border: 1px solid $color-45
+        border-radius: 9px
+        transition: .5s all
+        &:hover
+            background: $color-45
+            color: #fff
+
+.portfolio
+    position: relative
+    background: url(../img/portfolio/bg-decor.png) no-repeat center
+    background-size: auto
+    background-position-y: -250px
+    &__inner
+        position: relative
+        z-index: 10
+    &__heading
+        max-width: 705px
+        margin: 0 auto
+    &__heading-title
+        span
+            padding: 8px 0
+            border: 1px solid $color-45
+            border-radius: 50%
+    &__filter
+        padding-top: 23px
+    &__filter-box
+        margin-bottom: 46px
+        display: flex
+        align-items: center
+    &__title
+        margin-right: 45px
+        font-size: 24px
+        line-height: 28px
+    &__filter-btn
+        margin-right: 18px
+        padding: 17px 28px
+        line-height: 19px
+        cursor: pointer
+        color: #fff
+        background: #45C436
+        border: 1px solid #15B602
+        border-radius: 124px
+    &__filter-btn--active
+        background: #F7F7F7
+        border: 1px solid #D5D5D5
+        color: #D5D5D5
+    &__list
+        margin-bottom: 51px
+        display: grid
+        grid-template: repeat(4, auto) / repeat(3, 1fr)
+    &__btn-box
+        text-align: center
+    &__btn-more
+        background: linear-gradient(291.31deg, rgba(0, 0, 0, 0.2) 3.27%, rgba(0, 0, 0, 0) 66.8%), #45C436
+
+.about
+    background: url(../img/About/bg.jpg) 0 94% / cover no-repeat
+    &__inner
+        display: flex
+        align-items: center
+        justify-content: space-around
+    &__left-wrapper
+        position: relative
+        &::after
+            content: ""
+            position: absolute
+            top: 43px
+            left: -72px
+            background: url(../img/About/about-author__bg.png) 0 0 / 100% no-repeat
+            width: 447px
+            height: 375px
+    &__author
+        position: relative
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        text-align: center
+        z-index: 10
+    &__author-info
+        position: absolute
+        left: 0
+        bottom: 120px
+        display: flex
+        flex-direction: column
+        align-items: center
+    &__author-title
+        padding: 17px 27px
+        position: relative
+        z-index: 10
+        display: inline-block
+        font-size: 18px
+        font-weight: 600
+        line-height: 21px
+        color: #fff
+        background: $color-45
+        box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.04)
+        border-radius: 9px
+    &__author-pos
+        padding: 17px 27px
+        position: relative
+        bottom: 5px
+        display: inline-block
+        font-size: 18px
+        line-height: 21px
+        background: #FFD25A
+        box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.04)
+        border-radius: 9px
+    &__ask
+        padding: 18px 30px
+        position: absolute
+        left: 0
+        bottom: 0
+        display: inline-block
+        background: #fff
+        box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.05)
+        border-radius: 9px
+    &__ask-title
+        margin-bottom: 11px
+        color: $text-color
+    &__ask-messagers
+        display: flex
+        justify-content: center
+    &__ask-item
+        margin-right: 11px
+    &__heading-title
+        margin-bottom: 23px
+        padding: 9px 13px 13px 13px
+        font-size: 46px
+        font-weight: 600
+        line-height: 55px
+        border: 1px solid #45C436
+        border-radius: 50%
+        display: inline-block
+    &__heading-name
+        margin-bottom: 43px
+        font-size: 34px
+        line-height: 40px
+        color: rgba(34, 34, 34, 0.8)
+    &__benefits
+        display: grid
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr)
+        gap: 30px
+    &__benefits-item
+        width: 370px
+        height: 149px
+        position: relative
+        display: flex
+        align-items: center
+        background: #fff
+        border: 2px solid #45C436
+        border-radius: 9px
+        p
+            padding-left: 43px
+            max-width: 211px
+    &__benefits-text
+        font-size: 18px
+
+.about__ask-item--instagram
+    svg
+        &:hover
+            circle
+                stroke: none
+                path
+                    fill: none
+                    background: url(../img/About/instagram.svg) 0 0 / 100% no-repeat
+
+.about__ask-item--watsapp
+    svg
+        &:hover
+            circle
+                transition: all .3s
+                stroke: $color-45
+            path
+                fill: #28C44C
+
+.about__ask-item--mail
+    svg
+        &:hover
+            circle
+                transition: all .3s
+                stroke: #F3C638
+            path
+                fill: #F3C638
+
+.about__benefits-item--clock
+    &::after
+        content: ""
+        position: absolute
+        top: -4px
+        right: -40px
+        width: 249px
+        height: 249px
+        background: url(../img/About/red-clock.png) no-repeat
+        z-index: 20
+
+.about__benefits-item--money
+    &::after
+        content: ""
+        position: absolute
+        top: 4px
+        right: -133px
+        width: 249px
+        height: 249px
+        background: url(../img/About/money.png) no-repeat
+        z-index: 20
+
+.about__benefits-item--rocket
+    &::after
+        content: ""
+        position: absolute
+        top: 2px
+        right: -40px
+        width: 249px
+        height: 249px
+        background: url(../img/About/rocket.png) no-repeat
+        z-index: 20
+
+.about__benefits-item--target
+    &::after
+        content: ""
+        position: absolute
+        top: -4px
+        right: -40px
+        width: 249px
+        height: 249px
+        background: url(../img/About/target.png) no-repeat
+        z-index: 20
+
+.benefits
+    background: url(../img/benefits/bg.jpg)
+    position: relative
+    &__inner
+        padding: 53px 0
+        position: relative
+        &::after
+            content: ""
+            position: absolute
+            top: -90px
+            right: -245px
+            background: url(../img/benefits/orange.png) 0 0 / 100% no-repeat
+            width: 678px
+            height: 401px
+    &__title
+        margin-bottom: 34px
+        font-size: 46px
+        font-weight: 600
+        line-height: 55px
+        color: #fff
+    &__wrapper
+        display: grid
+        grid-template: repeat(2, auto) / repeat(2, 1fr)
+        row-gap: 23px
+        width: 860px
+    &__wrapper-item
+        display: flex
+        align-items: center
+    &__wrapper-count
+        margin-right: 17px
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 37px
+        height: 37px
+        font-size: 24px
+        font-weight: 600
+        line-height: 28px
+        color: #fff
+        border: 2px solid #FFDE23
+        border-radius: 6px
+    &__wrapper-text
+        font-size: 24px
+        font-weight: 600
+        line-height: 28px
+        color: #fff
+        max-width: 332px
+    &__wrapper-img-adapt
+        display: none
+
+.benefits__wrapper-item--adapt
+    display: none
+
+.form
+    background: url(../img/form/bg.jpg) 0 94% / cover no-repeat
+    &__inner
+        padding-top: 185px
+    &__title
+        margin-bottom: 94px
+        font-size: 56px
+        font-weight: 600
+        line-height: 67px
+    span
+        color: $color-45
+    &__wrapper
+        display: flex
+        position: relative
+    &__wrapper-box
+        padding: 60px 43px
+        width: 441px
+        position: relative
+        background: #fff
+        border-radius: 9px
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.11)
+        display: flex
+        flex-direction: column
+        z-index: 10
+    &__wrapper-heading
+        text-align: center
+    &__wrapper-title
+        margin-bottom: 20px
+        font-size: 34px
+        font-weight: 600
+        line-height: 40px
+    &__wrapper-text
+        margin-bottom: 37px
+        font-size: 18px
+        line-height: 21px
+        width: 229px
+        margin: 0 auto
+    &__wrapper-img
+        position: absolute
+        top: -50px
+        left: 185px
+    &__name
+        padding: 25px 25px 25px 50px
+        margin: 37px 0 7px 0
+        font-size: 18px
+        line-height: 21px
+        border-radius: 61px
+        border: 1px solid #E7E7E7
+        outline: none
+        background: #f2f2f2 url(../icons/form__name.svg) no-repeat
+        background-position: 24px center
+        transition: 1s all
+    &__number
+        margin-bottom: 18px
+    &__name:focus
+        background: url(../icons/form__name-b.svg) no-repeat
+        background-position: 24px center
+        outline: 1px solid #000
+    &__number:focus
+        background: url(../icons/form__tel-b.svg) no-repeat
+        background-position: 24px center
+        outline: 1px solid #000
+    &__btn
+        margin-bottom: 13px
+        font-size: 18px
+        line-height: 21px
+        cursor: pointer
+    &__checkbox-wrapper
+        display: flex
+        justify-content: flex-start
+    &__checkbox-label
+        display: flex
+        font-size: 12px
+        line-height: 14px
+        a
+            margin-left: 2px
+            color: $text-color
+            text-decoration: underline
+            text-decoration-color: #D8D7D7
+    &__checkbox
+        position: relative
+        width: 16px
+        height: 16px
+        flex: 0 0 auto
+        display: flex
+        align-items: center
+        justify-content: center
+    &__checkbox-default
+        width: 1px
+        height: 1px
+        overflow: hidden
+        position: absolute
+        clip: rect(0, 0, 0, 0)
+    &__checkbox-custom
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        width: 12px
+        height: 10px
+        border: 1px solid #000
+        border-radius: 3px
+
+.form__checkbox-default:checked + .form__checkbox-custom
+    border: none
+    background: url(../img/form/check.svg)
+
+.form__img-wrapper--adaptive
+    display: none
+
+.footer
+    padding-bottom: 25px
+    &__inner
+        display: flex
+        justify-content: space-between
+    &__logo
+        margin-bottom: 14px
+        display: flex
+        color: $text-color
+        h1
+            font-size: 24px
+            line-height: 28px
+            text-transform: uppercase
+    &__tel
+        margin-bottom: 11px
+        display: flex
+        align-items: center
+        a
+            color: $text-color
+            transition: all .3s
+            &:hover
+                color: $color-45
+        span
+            margin-right: 11px
+            display: block
+            width: 15px
+            height: 15px
+            background: url(../img/footer/phone.svg)
+    &__mail
+        margin-bottom: 42px
+        display: flex
+        align-items: center
+        a
+            color: $text-color
+            transition: all .3s
+            &:hover
+                color: $color-45
+        span
+            margin-right: 11px
+            display: block
+            width: 17px
+            height: 17px
+            background: url(../img/footer/mail.svg)
+    &__rights
+        display: flex
+        justify-content: space-between
+        a
+            font-size: 12px
+            line-height: 14px
+            color: rgba(34, 34, 34, 0.7)
+    &__rights-policy
+        &:hover
+            text-decoration: underline
+            text-decoration-color: rgba(34, 34, 34, 0.3)
+    &__rights-copyright
+        text-decoration: none
+    &__nav
+        display: flex
+        align-items: center
+        ul
+            display: grid
+            grid-template: repeat(2, auto) / repeat(3, 1fr)
+            row-gap: 11px
+            column-gap: 102px
+    &__nav-link
+        color: $text-color
+        line-height: 20px
+        transition: all .3s
+        &:hover
+            color: $color-45
+    &__socials
+        display: flex
+        align-items: center
+    &__socials-item
+        margin-right: 6px
+
+.footer__socials-item--instagram
+    svg
+        &:hover
+            circle
+                stroke: none
+            path
+                fill: none
+                background: url(../img/About/instagram.svg) 0 0 / 100% no-repeat
+
+.footer__socials-item--watsapp
+    svg
+        &:hover
+            circle
+                transition: all .3s
+                stroke: $color-45
+            path
+                fill: #28C44C
+
+.footer__socials-item--mail
+    svg
+        &:hover
+            circle
+                transition: all .3s
+                stroke: #F3C638
+            path
+                fill: #F3C638
+
+.footer__socials--adapt
+    display: none
+
+.footer__logo--adapt
+    display: none
+
+.swiper-adaptive
+    display: none
+    height: 535px
+    .swiper-wrapper
+        width: 800px
+// ======================================================================================================================
+// ================================================SWIPER#1==============================================================
+// ======================================================================================================================
+
+.swiper
+    height: 535px
+    margin-left: 188px
+    position: absolute
+    left: 370px
+    top: -44px
+
+.swiper-button-prev, .swiper-rtl .swiper-button-next
+    top: 190px
+    left: 573px
+    transform: rotate(90deg)
+    &::after
+        color: #45C436
+
+.swiper-button-next:after, .swiper-button-prev:after
+    font-size: 32px
+
+.swiper-button-next, .swiper-rtl .swiper-button-prev
+    top: 414px
+    transform: rotate(90deg)
+    right: 117px
+    font-size: 15px
+    &::after
+        color: #45C436
+
+.swiper-vertical>.swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-vertical
+    height: 35%
+    top: 39%
+    right: 129px
+
+.swiper-scrollbar.swiper-scrollbar-vertical, .swiper-vertical>.swiper-scrollbar
+    width: 3px
+
+.swiper-scrollbar
+    background: #fff
+
+.swiper-scrollbar-drag
+    background: #45C436
+
+.swiper-pagination
+    font-size: 16px
+    font-weight: 600
+    line-height: 19px
+    color: $color-45
+    span
+        &:last-child
+            font-size: 12px
+
+.swiper-pagination-fraction
+    bottom: 302px
+    left: 268px
+
+// ======================================================================================================================
+// ================================================SWIPER#2==============================================================
+// ======================================================================================================================
+
+.swiper2
+    margin-right: 40px
+    text-align: center
+    overflow: hidden
+    position: relative
+    &__title
+        margin-bottom: 40px
+        font-size: 34px
+        font-weight: 600
+        line-height: 40px
+        text-align: center
+    .swiper-slide-duplicate-active
+        display: block
+
+
+
+.swiper-wrapper
+    width: 718px
+    height: 370px
+
+.swiper-slide
+    display: inline-grid
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr))
+    gap: 10px 23px
+
+.swiper-slide-item
+    padding: 20px 0
+    border: 1px solid rgba(0, 0, 0, 0.09)
+    border-radius: 9px
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    transition: .2s all
+    &:last-child
+        margin-right: 50px
+    &:hover
+        border-color: #45C436
+        box-shadow: 0 0.2rem 0.4rem rgb(0 0 0 / 10%), 0 0.67rem 2rem rgb(0 0 0 / 15%)
+
+.swiper-item-img
+    margin-bottom: 15px
+    position: relative
+    img
+        width: 90%
+        height: auto
+        object-fit: cover
+
+.swiper-item-title
+    word-wrap: break-word
+
+.swiper-slide-item--active
+    background: linear-gradient(225deg, rgba(255, 255, 255, 0.27) 0%, rgba(84, 223, 67, 0.27) 11.25%, rgba(255, 255, 255, 0.27) 22.19%, rgba(84, 223, 67, 0.27) 27.92%, rgba(255, 255, 255, 0.27) 35.73%, rgba(84, 223, 67, 0.27) 44.06%, rgba(255, 255, 255, 0.27) 53.44%, rgba(84, 223, 67, 0.27) 63.33%, rgba(255, 255, 255, 0.27) 72.19%, rgba(84, 223, 67, 0.27) 80%, rgba(255, 255, 255, 0.27) 88.85%, rgba(84, 223, 67, 0.27) 99.27%, rgba(255, 255, 255, 0) 100%), #45C436
+
+.swiper2-button-next
+    margin-top: 40px
+    padding: 26px 96px 26px 79px
+    background: linear-gradient(288.46deg, rgba(0, 0, 0, 0.2) -12.86%, rgba(0, 0, 0, 0) 66.5%), #45C436
+    border-radius: 126px
+    display: inline-block
+    cursor: pointer
+    &::before
+        content: "Далее"
+        margin-right: 6px
+        font-size: 18px
+        line-height: 21px
+        color: #fff
+    &::after
+        content: "next"
+        font-family: swiper-icons
+        color: #fff
+
+.swiper2-pagination
+    margin-bottom: 40px
+    display: flex
+    justify-content: space-between
+
+.swiper-pagination-bullet
+    width: 150px
+    height: 13px
+    border-radius: 89px
+    background: linear-gradient(291.31deg, rgba(0, 0, 0, 0.2) 3.27%, rgba(0, 0, 0, 0) 66.8%), #45C436
+
+/*=====================================================ANIMATION====================================================
+ ===================================================ANIMATION===================================================/
+
+@keyframes online
+    0%
+        opacity: 1
+
+    100%
+        opacity: 0
+
+/*=====================================================MEDIA====================================================
+ ===================================================MEDIA===================================================/
+
+@media (max-width: 1300px)
+    .swiper
+        left: 300px
+    .header
+        &__body-title
+            font-size: 53px
+        &__body-tagline
+            font-size: 31px
+    .portfolio
+        &__list
+            grid-template: repeat(4, auto) / repeat(2, 0.1fr)
+            justify-content: center
+        &__filter-box
+            justify-content: center
+
+@media (max-width: 1170px)
+    .swiper
+        left: 200px
+    .header
+        &__body-title
+            font-size: 27px
+        &__body-tagline
+            font-size: 24px
+    .about
+        &__heading
+            display: none
+            grid-template: none
+        &__benefits
+            grid-template: none
+    .benefits
+        &__inner
+            &::after
+                top: -13px
+                width: 548px
+    .form
+        &__wrapper-img
+            display: none
+
+@media (max-width: 1070px)
+    .swiper
+        display: none
+    .swiper-adaptive
+        display: block
+        position: relative
+        left: 117px
+        margin-bottom: 40px
+    .header
+        &__search--active
+            input
+                width: 230px
+        &__body
+            padding-top: 65px
+        &__body-wrapper
+            margin: 0 auto
+            text-align: center
+        &__body-title
+            max-width: none
+            font-size: 30px
+        &__body-tagline
+            margin-bottom: 17px
+        &__body-benefit
+            max-width: none
+            display: block
+            position: relative
+            &::before
+                top: -14px
+                left: 16px
+                position: absolute
+                background: url(../img/header-light.png) 50% 50% no-repeat
+        &__body-btn
+            width: 437px
+            left: -10px
+    .benefits
+        &__inner
+            display: flex
+            flex-direction: column
+            align-items: center
+            &::after
+                display: none
+    .form
+        &__inner
+            display: flex
+        &__title
+            text-align: center
+            font-size: 59px
+    .footer
+        &__nav
+            ul
+                column-gap: 12px
+
+@media (max-width: 950px)
+    .header
+        &__nav-wrapper
+            gap: 11px 30px
+        &__search--active
+            .header__search-btn
+                transform: translateX(0)
+            input
+                left: -56px
+                top: 56px
+                width: 300px
+    .form
+        &__title
+            font-size: 5.2vw
+
+@media (max-width: 880px)
+    .benefits
+        background: $color-45
+        position: relative
+        &__wrapper
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+        &__wrapper-item
+            min-width: 386px
+        &__wrapper-item--adapt
+            display: flex
+        &__wrapper-item--3
+            display: none
+        &__wrapper-img-adapt
+            display: block
+            height: 220px
+            position: relative
+            top: 17px
+            left: 30px
+    .footer
+        &__inner
+            flex-direction: column-reverse
+        &__info
+            margin-top: 38px
+            display: flex
+            justify-content: space-between
+            align-items: center
+        &__nav
+            ul
+                flex-grow: 1
+        &__socials
+            display: none
+        &__socials--adapt
+            display: flex
+        &__logo
+            display: none
+        &__logo--adapt
+            display: flex
+
+@media (max-width: 768px)
+    .swiper-adaptive
+        left: 57px
+    .header
+        &__top-contacts
+            display: none
+        &__nav-wrapper
+            gap: 11px 0
+            font-size: 14px
+        &__nav-info
+            font-size: 14px
+        &__body-title
+            font-size: 31px
+            max-width: 690px
+        &__body-tagline
+            max-width: 690px
+        &__body-benefit
+            &::before
+                left: -5px
+        &__benefit-text
+            font-size: 16px
+            max-width: 690px
+        &__body-btn
+            display: block
+            left: 120px
+        &__popup--active
+            left: 55%
+    .service
+        &__inner
+            padding: 45px 10px 38px 50px
+        &__heading
+            h3
+                font-size: 7vw
+        &__bonus
+            display: none
+    .portfolio
+        &__list
+            display: flex
+            flex-direction: column
+            align-items: center
+        &__list-item
+            img
+                width: 100%
+                height: auto
+        &__title
+            display: none
+    .about
+        &__inner
+            flex-direction: column
+        &__left-wrapper
+            margin-bottom: 30px
+            left: 20px
+    .benefits
+        &__title
+            font-size: 34px
+        &__wrapper-text
+            font-size: 23px
+    .product
+        &__heading
+            h3
+                font-size: 36px
+        &__inner
+            flex-direction: column
+            align-items: center
+        &__item
+            margin-right: 0
+            margin-bottom: 30px
+        &:last-child
+            margin-bottom: 0
+    #a5,#a6,#a7,#a8,#a9,#a10,#a11,#a12
+        display: none
+    .form
+        &__inner
+            display: block
+        &__title
+            margin-bottom: 0
+            text-align: center
+            font-size: 33px
+            position: relative
+        &__wrapper
+            justify-content: center
+        &__img-wrapper--adaptive
+            display: block
+            top: 0
+            left: 0
+            position: relative
+            img
+                width: 100%
+                height: auto
+        &__wrapper-img
+            display: none
+
+@media (max-width: 700px)
+    .header
+        &__body-title
+            font-size: 25px
+        &__body-tagline
+            font-size: 20px
+        &__body-benefit
+            &::before
+                left: 50px
+        &__benefit-text
+            font-size: 13px
+            max-width: 690px
+        &__body-btn
+            left: 110px
+        &__popup
+            .header__popup-text
+                &::before
+                    display: none
+        &__popup-success
+            p
+                font-size: 22px
+                &::before
+                    left: 190px
+                    width: 260px
+    .form
+        &__title
+            font-size: 30px
+
+@media (max-width: 660px)
+    .swiper2
+        .swiper-wrapper
+            height: 560px
+
+@media (max-width: 630px)
+    .swiper-adaptive
+        left: 17px
+    .container-wrapper
+        background: rgba(255, 255, 255, 1)
+    .overlay--show
+        display: block
+    .header
+        &__nav
+            flex-direction: column
+        &__nav-menu
+            position: absolute
+            transform: translateY(0)
+        &__nav-menu--active
+            position: relative
+        &__nav-wrapper
+            margin-bottom: 23px
+            font-size: 16px
+            display: flex
+            flex-direction: column
+            gap: 23px
+        &__nav-info
+            font-size: 16px
+        &__nav-schedule
+            margin-bottom: 23px
+        &__body-title
+            max-width: 600px
+        &__body-tagline
+            max-width: 580px
+        &__body-benefit
+            &::before
+                left: -5px
+        &__benefit-text
+            max-width: 560px
+        &__body-btn
+            left: 60px
+        &__popup
+            width: 465px
+            left: 50%
+    .portfolio
+        &__heading-title
+            margin-bottom: 10px
+        &__filter-box
+            display: none
+
+@media (max-width: 580px)
+    .swiper-adaptive
+        left: -10px
+    .main
+        &__form
+            padding-bottom: 93px
+    .header
+        &__body-title
+            margin-bottom: 0
+            font-size: 24px
+            max-width: 530px
+        &__body-tagline
+            font-size: 18px
+            max-width: 555px
+    .portfolio
+        &__heading
+            h3
+                font-size: 36px
+    .product
+        &__heading
+            h3
+                margin-bottom: 26px
+                font-size: 27px
+    .footer
+        &__nav
+            ul
+                grid-template: repeat(2, auto) / repeat(2, 1fr)
+
+
+@media (max-width: 550px)
+    .benefits
+        &__title
+            text-align: center
+
+@media (max-width: 530px)
+    .swiper-adaptive
+        height: 405px
+        left: 0
+    .swiper-adaptive
+        .swiper-slide
+            img
+                width: 428px
+                height: 426px
+    .header
+        &__top-logo
+            h1
+                font-size: 26px
+            img
+                width: 43px
+                height: 28px
+        &__top-tel
+            font-size: 16px
+        &__top-status
+            font-size: 13px
+            width: 136px
+        &__body-title
+            max-width: 94vw
+        &__body-tagline
+            max-width: 95vw
+        &__body-benefit
+            &::before
+                display: none
+        &__benefit-text
+            font-size: 14px
+            max-width: 92vw
+        &__body-btn
+            width: 347px
+            left: 40px
+            display: flex
+        &__popup
+            width: 415px
+        &__popup-title
+            font-size: 26px
+        &__popup-subtitle
+            font-size: 13px
+        &__popup-text
+            font-size: 20px
+        &__popup-tel
+            width: 306px
+        &__popup-btn
+            width: 304px
+        &__popup-checkbox
+            font-size: 11px
+        &__popup-success
+            p
+                font-size: 24px
+            h5
+                font-size: 34px
+    .about
+        &__left-wrapper
+            &::after
+                width: 397px
+        &__img-box
+            img
+                width: 297px
+    .benefits
+        &__wrapper
+            row-gap: 19px
+        &__title
+            font-size: 29px
+        &__wrapper-text
+            font-size: 18px
+
+@media (max-width: 490px)
+    .swiper2
+        .swiper-wrapper
+            height: 850px
+    .header
+        &__popup-success
+            padding: 60px
+            width: 400px
+            text-align: center
+            h5
+                font-size: 30px
+            p
+                max-width: none
+                font-size: 23px
+                &::before
+                    display: none
+            a
+                width: 100%
+    .service
+        &__heading
+            margin-bottom: 28px
+
+                
+
+@media (max-width: 470px)
+    .swiper2
+        &__title
+            font-size: 25px
+        
+
+@media (max-width: 450px)
+    .swiper-adaptive
+        margin-bottom: -30px
+        left: -30px
+        height: 440px
+    .swiper-adaptive
+        .swiper-slide
+            img
+                width: 437px
+    .swiper2-button-next
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 100%
+    .header
+        padding-bottom: 50px
+        .burger
+            padding: 17px 11px 17px 0
+            margin: 0
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                left: 0
+                bottom: 0
+                right: 0
+                border: 1px solid #DADADA
+                border-left: none
+                border-top: none
+            &__inner
+                div
+                    display: none
+                &::after
+                    width: 23px
+        &__top-inner
+            padding: 4px 0
+        &__top-logo
+            h1
+                font-size: 16px
+            img
+                width: 23px
+                height: 17px
+        &__search
+            display: none
+        &__likes
+            padding: 14px 11px 14px 11px
+            margin: 0
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                left: 36px
+                bottom: 0
+                right: 0
+                border: 1px solid #DADADA
+                border-left: none
+                border-top: none
+                border-bottom: none
+        &__likes--active
+            background-position-x: 11px
+            background-position-y: 14px
+        &__top-watsapp
+            padding: 15px 11px
+            display: block
+            position: relative
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                left: 0
+                bottom: 0
+                right: 0
+                border: 1px solid #DADADA
+                border-top: none
+        &__top-phone
+            padding: 15px 0 15px 11px
+            display: block
+            position: relative
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                left: 54px
+                bottom: 0
+                right: 0
+                border: 1px solid #DADADA
+                border-left: none
+                border-top: none
+        &__live-wrapper
+            display: none
+        &__body
+            background: url(../img/header-background-adaptive.png) 0 95% / cover no-repeat
+        &__body-title
+            margin-bottom: 16px
+            line-height: 28px
+        &__body-tagline
+            margin-bottom: 20px
+            max-width: 82vw
+            position: relative
+            left: 17px
+            line-height: 21px
+        &__benefit-text
+            max-width: 85vw
+            line-height: 16px
+            position: relative
+            left: 7px
+        &__body-btn
+            width: 307px
+            left: 30px
+            font-size: 14px
+            &::after
+                background: url(../img/notebook-adaptive.png)
+                right: -30px
+        &__popup
+            left: 49%
+            width: 355px
+        &__popup-title
+            font-size: 24px
+        &__popup-subtitle
+            font-size: 11px
+        &__popup-text
+            font-size: 17px
+        &__popup-tel
+            width: 246px
+        &__popup-btn
+            width: 244px
+        &__popup-checkbox
+            font-size: 8px
+        &__popup-success
+            width: 395px
+            p
+                font-size: 24px
+            h5
+                font-size: 28px
+
+    .portfolio
+        &__heading
+            h3
+                font-size: 26px
+                line-height: 34px
+    .about
+        &__left-wrapper
+            left: 10px
+            &::after
+                width: 317px
+                left: -37px
+        &__img-box
+            img
+                width: 267px
+        &__benefits-item
+            width: 300px
+            height: 95px
+            &::after
+                display: none
+            &::before
+                content: ""
+                width: 201px
+                height: 201px
+                position: absolute
+        &__benefits-text
+            font-size: 14px
+    .main__product
+        margin-bottom: 101px
+    .benefits
+        &__title
+            font-size: 26px
+            max-width: 237px
+            text-align: center
+            line-height: 31px
+        &__wrapper-text
+            font-size: 16px
+    .product
+        &__heading
+            h3
+                max-width: 225px
+                font-size: 24px
+                line-height: 28px
+    .service
+        &__heading
+            h3
+                font-size: 22px
+                line-height: 29px
+                max-width: 356px
+            p
+                font-size: 14px
+                line-height: 17px
+    .form
+        &__inner
+            padding-top: 83px
+        &__title
+            font-size: 26px
+            line-height: 47px
+        &__wrapper-title
+            font-size: 24px
+        &__wrapper-text  
+            font-size: 17px
+            width: auto
+    .footer
+        padding-bottom: 16px
+        &__nav-link
+            font-size: 12px
+            font-weight: 400 
+        &__contact
+            font-size: 12px
+        &__rights
+            font-size: 12px
+            flex-direction: column
+            gap: 14px
+            
+    .about__benefits-item--clock
+        &::before
+            background: url(../img/About/adapt/clock.png) no-repeat
+            top: -4px
+            left: 130px
+        .about__benefits-text
+            max-width: 173px
+
+    .about__benefits-item--rocket
+        &::before
+            background: url(../img/About/adapt/rocket.png) no-repeat
+            top: -7px
+            left: 130px
+        .about__benefits-text
+            max-width: 176px
+
+    .about__benefits-item--money
+        &::before
+            background: url(../img/About/adapt/money.png) no-repeat
+            top: -16px
+            left: 202px
+        .about__benefits-text
+            max-width: 213px
+
+    .about__benefits-item--target
+        &::before
+            background: url(../img/About/adapt/target.png) no-repeat
+            top: -22px
+            left: 152px
+        .about__benefits-text
+            max-width: 200px
+
+@media (max-width: 430px)
+    .swiper-adaptive
+        .swiper-slide
+            img
+                width: 407px
+                height: 405px
+    .swiper2__title
+        font-size: 22px
+    .benefits
+        &__wrapper-item
+            position: relative
+            left: 50px
+        &__wrapper-text
+            max-width: 315px
+
+@media (max-width: 390px)
+    .swiper-adaptive    
+        .swiper-slide
+            img
+                width: 347px
+                height: 345px
+    .header
+        &__body-btn
+            left: -10px
+            font-size: 14px
+            &::after
+                background: url(../img/notebook-adaptive.png)
+                right: -30px
+        &__popup
+            width: 305px
+            left: 50%
+        &__popup-title
+            font-size: 20px
+        &__popup-subtitle
+            font-size: 12px
+        &__popup-text
+            font-size: 13px
+        &__popup-tel
+            width: 196px
+        &__popup-btn
+            width: 194px
+            display: flex
+            justify-content: center
+        &__popup-checkbox
+            font-size: 7px
+        &__popup-success
+            width: 300px
+            p
+                font-size: 20px
+            h5
+                font-size: 30px
+    .benefits
+        &__wrapper-text
+            max-width: 221px
+    .form
+        &__wrapper-box
+            width: 100%
+
+@media (max-width: 320px)
+    .swiper2
+        .swiper-slide
+            grid: none
+    .header
+        &__body-wrapper
+            position: relative
+            &::before
+                content: ""
+                width: 619px
+                height: 366px
+                background: url(../img/cloud.png) no-repeat
+                background-size: contain
+                position: absolute
+                bottom: -11px
+                left: -15px
+        &__body-btn
+            left: -10px
+            font-size: 14px
+            &::after
+                background: url(../img/notebook-adaptive.png)
+                right: -30px
+        &__popup-checkbox
+            font-size: 7px
+    .form
+        &__title
+            font-size: 26px
+            line-height: 31px
+        &__wrapper-title
+            font-size: 22px
+            line-height: 26px
+        &__wrapper-text
+            font-size: 16px
+            line-height: 19px
+        &__checkbox-label
+            font-size: 10px
+            line-height: 12px
